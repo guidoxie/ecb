@@ -1,4 +1,4 @@
-## Implementation of AES-ECB encryption and decryption
+## CB encryption and decryption in Go
 ECB mode has security vulnerabilities and is not recommended for use, so the Go standard library does not include ECB by default.
 * The padding mode used by this library is PKCS7Padding.
 
