@@ -11,7 +11,7 @@ type ecb struct {
 	blockSize int
 }
 
-// NewEncrypter 创建一个ECB模式的加密器
+// NewEncrypter Creating an ECB mode encryptor
 func NewEncrypter(key []byte) (*encrypter, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
@@ -48,7 +48,7 @@ func (x *encrypter) Encrypt(src []byte) []byte {
 
 type decrypter ecb
 
-// NewEncrypter 创建一个ECB模式的解密器
+// NewEncrypter Creating a decryptor for ECB mode
 func NewDecrypter(key []byte) (*decrypter, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
@@ -83,7 +83,7 @@ func (x *decrypter) Decrypt(src []byte) []byte {
 	return dst[:trim]
 }
 
-// 填充模式
+// padding mode
 func pkcs7Pad(data []byte, blockSize int) []byte {
 	padding := blockSize - (len(data) % blockSize)
 	padText := bytes.Repeat([]byte{byte(padding)}, padding)
